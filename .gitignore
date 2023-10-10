@@ -1,0 +1,11 @@
+# Virtual environment
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# Jupyter Notebook
+.ipynb_checkpoints
