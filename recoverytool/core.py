@@ -27,3 +27,33 @@ def carve(folder_path, output_dir="./recovered"):
     deleted_files = recovery_tool.list_deleted_files()
     for file_path in deleted_files:
         recovery_tool.recover_file(file_path)
+
+
+import os
+import pytsk3
+
+
+# ... [Your existing FolderRecoveryTool class and carve function] ...
+
+def scan_disk_for_deleted_files(image_path):
+    # This function should return a list of deleted files using pytsk3
+
+    # Open the disk image
+    img_info = pytsk3.Img_Info(image_path)
+
+    # Try auto-detection for the filesystem
+    try:
+        fs_info = pytsk3.FS_Info(img_info)
+    except Exception as e:
+        raise ValueError(f"Failed to detect filesystem: {str(e)}")
+
+    # Logic to scan and get the list of deleted files
+    deleted_files = []
+    root_directory = fs_info.open_dir(path="/")
+    for directory_entry in root_directory:
+        if directory_entry.info.meta and directory_entry.info.name:
+            # Check if the file is deleted
+            if directory_entry.info.meta.flags & pytsk3.TSK_FS_META_FLAG_UNALLOC:
+                deleted_files.append(directory_entry.info.name.name.decode('utf-8'))
+
+    return deleted_files
