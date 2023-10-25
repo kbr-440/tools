@@ -1,16 +1,18 @@
-# AmazingTool
+# Recovery Tool
 
-AmazingTool is a Python utility designed to identify and recover deleted files across multiple file systems including NTFS, FAT32, and EXT4.
+Recovery Tool is a utility designed to help users recover lost or deleted files from disk images. It currently supports FAT32 and aims to include support for NTFS and ext4 file systems in the future.
+
+![Recovery Tool GUI](\tests\sampleImage\GUI.png) 
 
 ## Features
 
-- Identify deleted files
-- Recover files across multiple file systems
-- Lightweight and fast
+- Easy-to-use graphical interface.
+- Support for FAT32 file system (with NTFS and ext4 support coming soon).
+- Option to recover all files or select specific files for recovery.
 
 ## Installation
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/amazingtool.git
+1. Ensure you have Python 3.10 or higher installed.
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/your_username/recoverytool.git
