@@ -49,7 +49,7 @@ class DiskRecoveryTool:
             print(f"Warning: Error recovering file {file_name}: {str(e)}")
 
     def carve_deleted_files(self):
-        deleted_entries = self.scan_for_deleted_files()
+        deleted_entries = self.scan_files()
         for entry in deleted_entries:
             self.recover_file(entry)
         return {}
@@ -58,7 +58,7 @@ class DiskRecoveryTool:
 def scan_disk_for_deleted_files(image_path):
     print("Scanning disk...")
     tool = DiskRecoveryTool(image_path)
-    deleted_entries = tool.scan_for_deleted_files()
+    deleted_entries = tool.scan_files()
     if "error" in deleted_entries:
         print("Error in scanning:", deleted_entries["error"])
         return deleted_entries

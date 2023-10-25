@@ -74,7 +74,7 @@ class MainWindow(tk.Tk):
         if file_path:
             self.image_path = file_path
             self.file_label.config(text=os.path.basename(file_path))
-            self.error_label.config(text="")  # Clear any previous errors
+            self.error_text.config(text="")  # Clear any previous errors
 
     def choose_output_dir(self):
         dir_path = filedialog.askdirectory()
