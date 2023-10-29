@@ -54,6 +54,14 @@ class DiskRecoveryTool:
             self.recover_file(entry)
         return {}
 
+    def set_output_path(self, output_path):
+        if not os.path.exists(output_path):
+            os.makedirs(output_path, exist_ok=True)
+
+        self.output_dir = output_path
+        print(f"Output directory set to: {self.output_dir}")
+
+
 
 def scan_disk_for_deleted_files(image_path):
     print("Scanning disk...")
