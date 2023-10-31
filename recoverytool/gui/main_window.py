@@ -4,6 +4,7 @@ from tkinter import filedialog, ttk, font
 from recoverytool import core
 from recoverytool import errors
 
+
 class MainWindow(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -25,7 +26,8 @@ class MainWindow(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
-        ttk.Label(self, text="Recovery Tool", font=self.title_font, foreground='#00BFFF').grid(row=0, column=0, pady=(0, 20))
+        ttk.Label(self, text="Recovery Tool", font=self.title_font, foreground='#00BFFF').grid(row=0, column=0,
+                                                                                               pady=(0, 20))
 
         # Disk Image Selection
         image_frame = ttk.Frame(self)
@@ -110,6 +112,7 @@ class MainWindow(tk.Frame):
             self.set_error_text("Files recovered successfully!")
         else:
             self.set_error_text("Please select a disk image before attempting recovery.")
+
 
 if __name__ == "__main__":
     app = MainWindow()

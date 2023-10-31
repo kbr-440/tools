@@ -1,6 +1,7 @@
 import tkinter as tk
 from recoverytool.gui.main_window import MainWindow
 
+
 def main():
     # Create the main application window
     root = tk.Tk()
@@ -11,6 +12,7 @@ def main():
 
     # Main event loop for the GUI
     root.mainloop()
+
 
 if __name__ == "__main__":
     main()

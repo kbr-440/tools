@@ -62,23 +62,22 @@ class DiskRecoveryTool:
         print(f"Output directory set to: {self.output_dir}")
 
 
-
-def scan_disk_for_deleted_files(image_path):
-    print("Scanning disk...")
-    tool = DiskRecoveryTool(image_path)
-    deleted_entries = tool.scan_files()
-    if "error" in deleted_entries:
-        print("Error in scanning:", deleted_entries["error"])
-        return deleted_entries
-    return [entry.info.name.name.decode('utf-8') for entry in deleted_entries]
-
-def carve_files_from_disk(image_path, output_dir="./recovered"):
-    print("Carving files...")
-    tool = DiskRecoveryTool(image_path, output_dir)
-    result = tool.carve_deleted_files()
-    if result and "error" in result:
-        print("Error in carving:", result["error"])
-        return result
-    print("Carving completed!")
-    return {}
-
+# def scan_disk_for_deleted_files(image_path):
+#     print("Scanning disk...")
+#     tool = DiskRecoveryTool(image_path)
+#     deleted_entries = tool.scan_files()
+#     if "error" in deleted_entries:
+#         print("Error in scanning:", deleted_entries["error"])
+#         return deleted_entries
+#     return [entry.info.name.name.decode('utf-8') for entry in deleted_entries]
+#
+#
+# def carve_files_from_disk(image_path, output_dir="./recovered"):
+#     print("Carving files...")
+#     tool = DiskRecoveryTool(image_path, output_dir)
+#     result = tool.carve_deleted_files()
+#     if result and "error" in result:
+#         print("Error in carving:", result["error"])
+#         return result
+#     print("Carving completed!")
+#     return {}
